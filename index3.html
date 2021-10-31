@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #answer{
+           
+           font-family: "Roboto", sans-serif;
+           font-size: 60px;
+           margin-top: 30px;
+           text-align: center;
+           color: white;
+            position:center;     
+        }
+        #roll{
+            text-align: center;
+            background-color: rgb(243, 96, 132);
+        }
+        #colect{
+            text-align: center;
+            height: 6;
+            width: 6;
+            background-color: rgb(19, 219, 19);
+        }
+        #again{
+            background-color: #bee60e;
+        }
+     
+        input{  
+          position: top;   
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url(background.jpg);
+            background-repeat:no-repeat
+            background-position: center;
+            height: 100;
+            background-image: cover;
+            background-size: 100;
+        }
+        .header{
+            width: 1200;
+            position: absolute;
+            margin:0;
+            padding: 0;
+        }
+        h1{
+           text-transform: uppercase;
+           font-family: "Roboto", sans-serif;
+           font-size: 30px;
+           margin-top: 350px;
+           text-align: center;
+           color: white;
+        }
+       .buttons{   
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <marquee behavior="alternate" direction="left">
+        <font color = red size = 7 id="greating">Welcome To Game Center </font>
+    </marquee>
+   
+    <header>
+        <div class="theader">
+          <div><center> <input type="text" size="150" placeholder="please inter your name here" id="txt">
+             <button id="enter" onclick="sayHello()">ENTER</button></center></div>
+            <h1>Are You Ready To Play</h1>
+            <div class="buttons">
+              <input type="button" id="roll"  onclick="randomize()" value = "Roll The Dice">
+              <input type="button" id="colect" value="Collect Prices" onclick="show()">
+              <input type="button" id="again" value="Play Again" onclick="window.location.reload()">
+             
+            </div>
+        </div>
+        <div id="answer"> 
+        </div>
+    </header>
+    
+    <script>
+        
+        var dice1 = Math.floor((Math.random() * 6) + 1);
+        var dice2 = Math.floor((Math.random() * 6) + 1);
+        var dice3 = Math.floor((Math.random() * 6) + 1);
+        var dice4 = Math.floor((Math.random() * 6) + 1);
+        var dice5 = Math.floor((Math.random() * 6) + 1);
+        function show(){
+            
+            var  outPut = "";
+            if(dice1 === dice2 &&  dice1 === dice3 && dice1 === dice4 && dice1 === dice5  ){
+                outPut = dice1 + " . "+ dice2 + " . "+ dice3 + " . "+ dice4 + " . "+dice5
+                "<br /> you win" 
+                  
+            }
+            else{
+                outPut =   dice1 + " . "+ dice2 + " . "+ dice3 + " . "+ dice4 + " . "+dice5 +"<br /> not same " + 
+                "<br /> please try again"
+            }
+            document.getElementById("answer").innerHTML = outPut
+            
+        }
+        function sayHello(){
+           var nameText = document.getElementById("txt").value;
+           document.getElementById("greating").innerHTML = "Welcome Mr: " + nameText;  
+        }
+        function randomize(){  
+         document.getElementById("answer").innerHTML =
+          Math.floor((Math.random() * 6) + 1)+ " . " + Math.floor((Math.random() * 6) + 1) + " . "+
+           Math.floor((Math.random() * 6) + 1)+ " . "+Math.floor((Math.random() * 6) + 1)+ " . " + Math.floor((Math.random() * 6) + 1);
+        }
+
+        
+    </script>
+</body>
+</html>
